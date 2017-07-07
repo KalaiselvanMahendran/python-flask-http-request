@@ -16,7 +16,7 @@ def searchGithub():
     response = requests.get('https://api.github.com/users/' + githubUser)
     html = json.load(response)
     reposUrl = html['repos_url']
-    repoList = urllib2.urlopen(reposUrl)
+    repoList = requests.get(reposUrl)
     repoListJson = json.load(repoList)
     return json.dumps(repoListJson);
 
